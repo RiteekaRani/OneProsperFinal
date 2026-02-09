@@ -78,7 +78,7 @@ export function HomePageClient({
   }, [activeTab, segments]);
 
   const getSectionBackground = (index: number) =>
-    index % 2 === 0 ? "bg-white" : "bg-emerald-50";
+    index % 2 === 0 ? "bg-teal-50" : "bg-white";
 
   const [firstSection, ...restSections] = activeSections;
   let sectionIndex = 0;
