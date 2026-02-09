@@ -1,0 +1,566 @@
+# Read and Rise Website Build Spec (for Cursor / 5.2-codex)
+
+## 0) Project Overview
+- Org: Read and Rise
+- Relationship: Read and Rise is a sister organization to OneProsper International (not “formerly”).
+- Primary outcomes:
+  1) Donations / fundraising (Donately)
+  2) Buddy signups (USA/Canada high school girls)
+  3) School-admin signups (USA/Canada high school administrators)
+- Homepage is a single long-scroll page with a Students/Schools toggle that refreshes segment content below the toggle.
+- Primary CTA is fixed: “Join Read and Rise”.
+
+## 1) Site Map
+- / (Home: single long-scroll with Students/Schools toggle)
+- /about (Leadership Team, Directors & Advisors, History, Sister-org relationship to OneProsper)
+- /donate (Donately embed or donate redirect)
+- /signup (email capture + selector modal + redirect to Google Form)
+- /privacy-policy
+- /terms-of-service
+
+## 2) Component Inventory (with copy requirements)
+Global
+- StickyNav: logo + links (About, Donate, Sign Up), Donate and Sign Up styled as CTAs.
+- Donate CTA appears in: StickyNav + Hero + Donate section + Footer.
+
+Homepage Sections (shared structure; segment-specific content)
+- Hero: 2-column (LHS copy + CTAs, RHS image)
+- AudienceToggle: Students (default) / Schools (on toggle, refresh content sections below)
+- Section 3.1 Challenge: 3 cards, each requires an image
+- Section 3.2 Solution: 3 cards, each requires an image
+- Section 3.3 Stats: 3 separate stat boxes (not inline text)
+- Section 3.4 Logos: row of 6 school logos
+- Section 3.5 Buddy testimonials: carousel; each item has text + image/video
+- Section 3.6 Learner testimonials: carousel; each item has text + image/video
+- Section 3.7 School admin testimonials: carousel; each item has text + image/video; ONLY this content type
+- Section 3.8 How it works: new dedicated section; 6 steps with icons
+- Section 3.9 Benefits: 3 cards, each requires an image
+- Section 3.10 Join Us: email capture + on click open modal selector (Student / School Admin) + redirect to appropriate Google Form URL
+- Section 3.11 Donate: “Sponsor a learner” framing; Donately embed/redirect
+
+Footer
+- Sister-org line repeated
+- Social links, About links (Leadership Team, Directors & Advisors, History), Privacy Policy, Terms, Donate CTA
+
+## 3) JSON Spec (copy + behaviors + placeholders)
+```json
+{
+  "project": {
+    "name": "Read and Rise",
+    "domain": "oneprosper.org",
+    "relationship_note": "Read and Rise is a sister organization to OneProsper International.",
+    "primary_cta": "Join Read and Rise",
+    "donation_framing": "Sponsor a learner",
+    "toggle_behavior": {
+      "default_segment": "students",
+      "other_segment": "schools",
+      "mode": "same_page_refresh_sections_below_toggle"
+    }
+  },
+  "routes": [
+    {"path": "/", "name": "Home"},
+    {"path": "/about", "name": "About"},
+    {"path": "/donate", "name": "Donate"},
+    {"path": "/signup", "name": "Sign Up"},
+    {"path": "/privacy-policy", "name": "Privacy Policy"},
+    {"path": "/terms-of-service", "name": "Terms of Service"}
+  ],
+  "global": {
+    "nav": {
+      "sticky": true,
+      "items": [
+        {"label": "Home", "type": "logo", "href": "/"},
+        {"label": "About Us", "href": "/about"},
+        {"label": "Donate", "href": "/donate", "style": "cta_secondary"},
+        {"label": "Sign Up", "href": "/signup", "style": "cta_primary"}
+      ]
+    },
+    "donate_cta_placement": ["nav", "hero", "donate_section", "footer"]
+  },
+  "home": {
+    "hero": {
+      "layout": "two_column_desktop",
+      "lhs": {
+        "h1": "Read and Rise: Girls Educating Girls",
+        "subhead": "A 10-week English Learning Buddy program connecting high school girls in the U.S./Canada with girls in India for weekly conversation and reading practice.",
+        "bridge_line": "Read and Rise is a sister organization to OneProsper International.",
+        "primary_cta": {"label": "Join Read and Rise", "action": "open_join_flow"},
+        "secondary_cta": {"label": "Donate", "action": "go_to_donate"}
+      },
+      "rhs": {"asset": "placeholder_hero_image_or_video_call"}
+    },
+    "audience_toggle": {
+      "label": "Choose your path",
+      "tabs": ["Students", "Schools"],
+      "default": "Students"
+    },
+    "segments": {
+      "students": {
+        "3_1_challenge": {
+          "title": "Why this matters",
+          "intro": "Many students learn English in school — but confidence grows through regular conversation.",
+          "cards": [
+            {
+              "image": "placeholder_img_challenge_1",
+              "headline": "Conversation practice is limited",
+              "body": "Students often don’t get enough speaking time to build comfort and fluency."
+            },
+            {
+              "image": "placeholder_img_challenge_2",
+              "headline": "Confidence affects opportunity",
+              "body": "Speaking confidently can unlock participation, leadership, and future pathways."
+            },
+            {
+              "image": "placeholder_img_challenge_3",
+              "headline": "Mentorship is powerful",
+              "body": "A consistent peer relationship helps students stay motivated and supported."
+            }
+          ]
+        },
+        "3_2_solution": {
+          "title": "The Read and Rise Buddy Program",
+          "intro": "Simple structure. Real impact. One weekly commitment.",
+          "cards": [
+            {
+              "image": "placeholder_img_solution_1",
+              "headline": "Get paired with a learner",
+              "body": "You’ll be matched with a learner in India for a 10-week program."
+            },
+            {
+              "image": "placeholder_img_solution_2",
+              "headline": "Meet weekly for 30 minutes",
+              "body": "Use Zoom/Meet to practice conversational English and read together."
+            },
+            {
+              "image": "placeholder_img_solution_3",
+              "headline": "Follow a clear lesson plan",
+              "body": "We provide weekly materials so you always know what to do."
+            }
+          ]
+        },
+        "3_3_stats": {
+          "title": "Proven impact",
+          "style": "three_stat_boxes",
+          "stats": [
+            {"value": "5,000+", "label": "Learners enrolled since 2020"},
+            {"value": "7,500+", "label": "Volunteer hours delivered"},
+            {"value": "98.6%", "label": "Would recommend to a friend"}
+          ]
+        },
+        "3_4_logos": {
+          "title": "Trusted by schools",
+          "logos": ["logo_1", "logo_2", "logo_3", "logo_4", "logo_5", "logo_6"]
+        },
+        "3_5_testimonials_buddies": {
+          "title": "What Buddies say",
+          "carousel": true,
+          "items": [
+            {"media": "placeholder_video_or_image_1", "quote": "I saw my learner’s confidence grow week by week.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_2", "quote": "The lesson plan made it easy to lead sessions.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_3", "quote": "This was the most meaningful service I’ve done.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_4", "quote": "I learned how to mentor and communicate clearly.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_5", "quote": "It felt like a real connection, not just volunteering.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_6", "quote": "I’d sign up again next term.", "attribution": "Name, School"}
+          ]
+        },
+        "3_6_testimonials_learners": {
+          "title": "What Learners say",
+          "carousel": true,
+          "items": [
+            {"media": "placeholder_video_or_image_1", "quote": "Now I can speak without fear.", "attribution": "First name"},
+            {"media": "placeholder_video_or_image_2", "quote": "My buddy helped me practice real conversation.", "attribution": "First name"},
+            {"media": "placeholder_video_or_image_3", "quote": "Reading aloud improved my pronunciation.", "attribution": "First name"},
+            {"media": "placeholder_video_or_image_4", "quote": "I feel more confident in class now.", "attribution": "First name"},
+            {"media": "placeholder_video_or_image_5", "quote": "I look forward to our weekly calls.", "attribution": "First name"},
+            {"media": "placeholder_video_or_image_6", "quote": "I learned new words and how to use them.", "attribution": "First name"}
+          ]
+        },
+        "3_7_testimonials_admins": {
+          "title": "What schools say",
+          "carousel": true,
+          "items": [
+            {"media": "placeholder_video_or_image_1", "quote": "High impact, low lift for our school.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_2", "quote": "A structured program that builds leadership and service.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_3", "quote": "Clear communication and consistent support.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_4", "quote": "Students stayed engaged through the full program.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_5", "quote": "Measurable hours and meaningful outcomes.", "attribution": "Name, School"},
+            {"media": "placeholder_video_or_image_6", "quote": "We’d recommend it to other schools.", "attribution": "Name, School"}
+          ]
+        },
+        "3_8_how_it_works": {
+          "title": "How it works for Students",
+          "steps": [
+            {"icon": "placeholder_icon_1", "title": "Sign up", "body": "Share your email to get started."},
+            {"icon": "placeholder_icon_2", "title": "Confirm your cohort", "body": "Reply YES to the confirmation message."},
+            {"icon": "placeholder_icon_3", "title": "Attend orientation", "body": "Get lesson plan + tips."},
+            {"icon": "placeholder_icon_4", "title": "Meet weekly", "body": "30 minutes on Zoom/Meet."},
+            {"icon": "placeholder_icon_5", "title": "Log hours weekly", "body": "Submit volunteer hours in MobileServe."},
+            {"icon": "placeholder_icon_6", "title": "Complete the program", "body": "Receive certificate + impact summary."}
+          ]
+        },
+        "3_9_benefits": {
+          "title": "What you’ll gain",
+          "cards": [
+            {"image": "placeholder_img_benefit_1", "headline": "Verified service hours", "body": "Earn meaningful community service hours through a consistent weekly commitment."},
+            {"image": "placeholder_img_benefit_2", "headline": "Leadership + mentorship skills", "body": "Build communication, responsibility, and confidence as a mentor."},
+            {"image": "placeholder_img_benefit_3", "headline": "Global perspective", "body": "Connect across cultures and learn through real relationships."}
+          ]
+        }
+      },
+      "schools": {
+        "3_1_challenge": {
+          "title": "Why schools choose Read and Rise",
+          "intro": "Schools want programs that build leadership, service, and measurable impact without heavy admin overhead.",
+          "cards": [
+            {"image": "placeholder_img_school_challenge_1", "headline": "Students want meaningful service", "body": "Students want service that builds real skills and responsibility."},
+            {"image": "placeholder_img_school_challenge_2", "headline": "Schools need structure", "body": "Without a clear framework, volunteer programs lose momentum."},
+            {"image": "placeholder_img_school_challenge_3", "headline": "Outcomes must be measurable", "body": "Schools benefit from trackable participation and completion."}
+          ]
+        },
+        "3_2_solution": {
+          "title": "A structured program your students can lead",
+          "intro": "Clear expectations, guided materials, measurable results.",
+          "cards": [
+            {"image": "placeholder_img_school_solution_1", "headline": "Share the signup link", "body": "Promote the program and share dates with eligible students."},
+            {"image": "placeholder_img_school_solution_2", "headline": "Support student participation", "body": "Encourage orientation attendance and weekly consistency."},
+            {"image": "placeholder_img_school_solution_3", "headline": "Celebrate service + leadership", "body": "Recognize students for mentorship, global learning, and service hours."}
+          ]
+        },
+        "3_3_stats": {
+          "title": "Proven impact",
+          "style": "three_stat_boxes",
+          "stats": [
+            {"value": "5,000+", "label": "Learners enrolled since 2020"},
+            {"value": "7,500+", "label": "Volunteer hours delivered"},
+            {"value": "98.6%", "label": "Would recommend to a friend"}
+          ]
+        },
+        "3_4_logos": {
+          "title": "Participating schools",
+          "logos": ["logo_1", "logo_2", "logo_3", "logo_4", "logo_5", "logo_6"]
+        },
+        "3_5_testimonials_buddies": {"reuse_from": "students.3_5_testimonials_buddies"},
+        "3_6_testimonials_learners": {"reuse_from": "students.3_6_testimonials_learners"},
+        "3_7_testimonials_admins": {"reuse_from": "students.3_7_testimonials_admins"},
+        "3_8_how_it_works": {
+          "title": "How it works for Schools",
+          "steps": [
+            {"icon": "placeholder_icon_1", "title": "Express interest", "body": "Share your email."},
+            {"icon": "placeholder_icon_2", "title": "Confirm dates", "body": "Align on cohort schedule."},
+            {"icon": "placeholder_icon_3", "title": "Share signup link", "body": "Students register directly."},
+            {"icon": "placeholder_icon_4", "title": "Support orientation", "body": "Encourage student attendance."},
+            {"icon": "placeholder_icon_5", "title": "Run the program", "body": "Weekly mentoring with guided materials."},
+            {"icon": "placeholder_icon_6", "title": "Celebrate outcomes", "body": "Hours + participation summary."}
+          ]
+        },
+        "3_9_benefits": {
+          "title": "What your school gains",
+          "cards": [
+            {"image": "placeholder_img_school_benefit_1", "headline": "Service hours + leadership development", "body": "Students earn verified service hours while building mentorship skills."},
+            {"image": "placeholder_img_school_benefit_2", "headline": "A structured, low-lift program", "body": "Clear schedule, guided materials, and a predictable process."},
+            {"image": "placeholder_img_school_benefit_3", "headline": "Mission-aligned global impact", "body": "A meaningful way to connect students to global learning and equity."}
+          ]
+        }
+      }
+    },
+    "join_us": {
+      "section_id": "3_10_join_us",
+      "title": "Join Read and Rise",
+      "body": "Enter your email to get started.",
+      "email_capture": {"field_placeholder": "Email address", "button_label": "Continue"},
+      "on_submit": {
+        "action": "open_selector_modal",
+        "modal_title": "Continue as…",
+        "options": [
+          {"label": "I’m a Student", "redirect_url": "GOOGLE_FORM_STUDENT_URL_PLACEHOLDER"},
+          {"label": "I’m a School Admin", "redirect_url": "GOOGLE_FORM_SCHOOL_ADMIN_URL_PLACEHOLDER"}
+        ]
+      }
+    },
+    "donate": {
+      "section_id": "3_11_donate",
+      "title": "Sponsor a learner",
+      "body": "Your donation helps cover learning materials, program operations, and school coordination—so every learner can participate.",
+      "cta_label": "Donate Now",
+      "donately": {"mode": "embed_or_redirect", "url": "DONATELY_URL_PLACEHOLDER"}
+    },
+    "footer": {
+      "relationship_line": "Read and Rise is a sister organization to OneProsper International.",
+      "links": [
+        {"label": "Leadership Team", "href": "/about#leadership"},
+        {"label": "Directors & Advisors", "href": "/about#advisors"},
+        {"label": "History", "href": "/about#history"},
+        {"label": "Privacy Policy", "href": "/privacy-policy"},
+        {"label": "Terms of Service", "href": "/terms-of-service"},
+        {"label": "Donate", "href": "/donate"}
+      ],
+      "social": ["instagram_placeholder", "linkedin_placeholder", "youtube_placeholder"]
+    }
+  }
+}
+
+## 4) Wireframe (layout spec + ASCII)
+
+### 4.1 Desktop (primary)
+Order:
+1) StickyNav (always visible)
+2) Hero (2-column)
+3) Audience Toggle (Students default; switching to Schools refreshes below sections)
+4) Segment Sections (3.1–3.9) driven by active segment
+5) Join Us (3.10) email capture → modal selector → Google Form redirect
+6) Donate (3.11) Donately embed/redirect
+7) Footer (includes sister-org line + links + donate CTA)
+
+#### Desktop ASCII Wireframe (approximate)
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ STICKY NAV                                                                    │
+│ [Logo/Home]   About Us    Donate (CTA)                              Sign Up  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ HERO (2-column)                                                               │
+│ ┌───────────────────────────────┐   ┌──────────────────────────────────────┐ │
+│ │ H1: Read and Rise...          │   │  HERO IMAGE / VIDEO PLACEHOLDER      │ │
+│ │ Subhead lorem...              │   │                                      │ │
+│ │ Sister-org line (small)       │   │                                      │ │
+│ │ [Join Read and Rise] [Donate] │   │                                      │ │
+│ └───────────────────────────────┘   └──────────────────────────────────────┘ │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ AUDIENCE TOGGLE                                                               │
+│  [ Students ]    [ Schools ]   (Students default; toggle refreshes below)    │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.1 CHALLENGE (3 cards w/ images)                                            │
+│ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐                       │
+│ │ [IMG] Title   │ │ [IMG] Title   │ │ [IMG] Title   │                       │
+│ │ body text...  │ │ body text...  │ │ body text...  │                       │
+│ └───────────────┘ └───────────────┘ └───────────────┘                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.2 SOLUTION (3 cards w/ images)                                             │
+│ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐                       │
+│ │ [IMG] Title   │ │ [IMG] Title   │ │ [IMG] Title   │                       │
+│ │ body text...  │ │ body text...  │ │ body text...  │                       │
+│ └───────────────┘ └───────────────┘ └───────────────┘                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.3 STATS (3 stat boxes)                                                     │
+│ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐                       │
+│ │ 5,000+         │ │ 7,500+         │ │ 98.6%         │                       │
+│ │ label...       │ │ label...       │ │ label...      │                       │
+│ └───────────────┘ └───────────────┘ └───────────────┘                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.4 LOGOS (row of 6)                                                         │
+│ [LOGO] [LOGO] [LOGO] [LOGO] [LOGO] [LOGO]                                    │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.5 TESTIMONIALS — BUDDIES (carousel; media + text)                          │
+│ ◀  ┌──────────────────────────┐  ┌──────────────────────────┐  ┌──────────┐ │
+│    │ [Video/Image]            │  │ [Video/Image]            │  │ ...      │ │
+│    │ "quote..."               │  │ "quote..."               │  │          │ │
+│    │ — Name, School           │  │ — Name, School           │  │          │ │
+│    └──────────────────────────┘  └──────────────────────────┘  └──────────┘ │
+│                                                                   ▶          │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.6 TESTIMONIALS — LEARNERS (carousel; media + text)                         │
+│ ◀  [cards same format as above]                                       ▶      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.7 TESTIMONIALS — SCHOOL ADMINS (carousel; media + text only)               │
+│ ◀  [cards same format; no extra content types]                        ▶      │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.8 HOW IT WORKS (6 steps w/ icons)                                          │
+│ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐                       │
+│ │①[ic]│ │②[ic]│ │③[ic]│ │④[ic]│ │⑤[ic]│ │⑥[ic]│                       │
+│ │txt..│ │txt..│ │txt..│ │txt..│ │txt..│ │txt..│                       │
+│ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘ └──────┘                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.9 BENEFITS (3 cards w/ images)                                             │
+│ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐                       │
+│ │ [IMG] Title   │ │ [IMG] Title   │ │ [IMG] Title   │                       │
+│ │ body text...  │ │ body text...  │ │ body text...  │                       │
+│ └───────────────┘ └───────────────┘ └───────────────┘                       │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.10 JOIN US (email capture → selector modal → redirect)                     │
+│ [ Email address __________________ ]   [ Continue ]                          │
+│ (On Continue → Modal: “I’m a Student” | “I’m a School Admin”)                │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ 3.11 DONATE (Sponsor a learner)                                              │
+│ Title + body text...                 [ Donate Now ]  (Donately embed/redirect)│
+└──────────────────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ FOOTER                                                                       │
+│ Sister-org line                                                              │
+│ Social icons     Leadership   Directors & Advisors   History   Privacy  Terms │
+│ [Donate CTA]                                                                  │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+
+### 4.2 Mobile (notes + ASCII)
+Rules:
+- Nav collapses into hamburger; keep Donate + Sign Up visible as buttons if possible.
+- All 3-column grids become single-column stacks.
+- Carousels become swipeable cards.
+- How-it-works becomes vertical step list.
+
+#### Mobile ASCII Wireframe (approximate)
+
+┌──────────────────────────────┐
+│ NAV: [Logo]      [Donate][≡] │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ HERO IMAGE                   │
+│ H1...                        │
+│ subhead...                   │
+│ sister-org line              │
+│ [Join Read and Rise]         │
+│ [Donate]                     │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ TOGGLE: [Students] [Schools] │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.1 CHALLENGE                │
+│ [IMG] Title / body           │
+│ [IMG] Title / body           │
+│ [IMG] Title / body           │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.2 SOLUTION                 │
+│ [IMG] Title / body           │
+│ [IMG] Title / body           │
+│ [IMG] Title / body           │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.3 STATS                    │
+│ [Stat box]                   │
+│ [Stat box]                   │
+│ [Stat box]                   │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.4 LOGOS (wrap)             │
+│ [L][L][L]                    │
+│ [L][L][L]                    │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.5 TESTIMONIALS (carousel)  │
+│ ◀ [card] ▶                   │
+└──────────────────────────────┘
+...repeat for 3.6 and 3.7...
+
+┌──────────────────────────────┐
+│ 3.8 HOW IT WORKS             │
+│ ① icon  text...              │
+│ ② icon  text...              │
+│ ...                          │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.9 BENEFITS                 │
+│ [IMG] Title / body           │
+│ [IMG] Title / body           │
+│ [IMG] Title / body           │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.10 JOIN US                 │
+│ [Email_____________]         │
+│ [Continue]                   │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ 3.11 DONATE                  │
+│ Sponsor a learner...         │
+│ [Donate Now]                 │
+└──────────────────────────────┘
+
+┌──────────────────────────────┐
+│ FOOTER                       │
+│ sister-org line              │
+│ links...                     │
+│ [Donate]                     │
+└──────────────────────────────┘
+
+
+## 5) Implementation Notes for Codex (updated, with layout guidance)
+
+### 5.1 Tech assumptions (safe defaults)
+- Framework: Next.js (App Router) + React
+- Styling: Tailwind (default tokens; you will replace later)
+- Components: simple local components (no dependency lock-in)
+- Assets: placeholders only
+- Content: sourced from JSON above (single source of truth)
+
+### 5.2 Key implementation requirements
+- Build a `SegmentToggle` component:
+  - state: `activeSegment = 'students' | 'schools'`
+  - Students default
+  - on toggle: rerender/refresh segment section components below (no route change required)
+- Build a `SegmentRenderer`:
+  - reads from JSON: `home.segments[activeSegment]`
+  - renders sections in fixed order: 3.1 → 3.9
+- Build a `JoinFlow`:
+  - email capture form (basic validation: non-empty, contains "@")
+  - on submit: open modal selector with two options:
+    - Student → redirect to `GOOGLE_FORM_STUDENT_URL_PLACEHOLDER`
+    - School Admin → redirect to `GOOGLE_FORM_SCHOOL_ADMIN_URL_PLACEHOLDER`
+  - store captured email in local state; optionally POST to a placeholder endpoint `/api/lead` (stub)
+- Donation integration:
+  - Add Donate CTAs in nav, hero, donate section, footer
+  - Donate section supports `donately.mode = embed_or_redirect`
+  - For now, implement redirect button to placeholder Donately URL
+- Carousels:
+  - Implement lightweight carousel (scroll-snap) with Prev/Next buttons on desktop
+  - Swipeable scroll on mobile
+
+### 5.3 Files / structure (suggested)
+- `/app/page.tsx` (Home)
+- `/app/about/page.tsx`
+- `/app/donate/page.tsx`
+- `/app/signup/page.tsx`
+- `/app/privacy-policy/page.tsx`
+- `/app/terms-of-service/page.tsx`
+- `/content/siteSpec.json` (the JSON above, extracted as a file)
+- `/components/StickyNav.tsx`
+- `/components/Hero.tsx`
+- `/components/SegmentToggle.tsx`
+- `/components/SectionCards3.tsx` (for 3-card image sections)
+- `/components/Stats3.tsx`
+- `/components/LogoRow6.tsx`
+- `/components/TestimonialCarousel.tsx`
+- `/components/HowItWorks6.tsx`
+- `/components/JoinUs.tsx` (email + modal selector)
+- `/components/DonateSection.tsx`
+- `/components/Footer.tsx`
+
+### 5.4 Rendering order (hard-coded)
+Home must render in this order:
+StickyNav → Hero → SegmentToggle → (3.1…3.9) → JoinUs → Donate → Footer

@@ -1,0 +1,35 @@
+You are building a website repo from a single spec file.
+
+Framework: Next.js (App Router) + React + TypeScript.
+Styling: Tailwind (default tokens; do not over-design).
+Source of truth: /content/siteSpec.json. Do NOT hardcode copy outside this file.
+
+Tasks:
+1) Create pages: /, /about, /donate, /signup, /privacy-policy, /terms-of-service.
+2) Implement components matching siteSpec.json "type" fields:
+   StickyNav, HeroTwoColumn, AudienceToggle, Cards3WithImages, Stats3Boxes,
+   LogoRow6, TestimonialsCarousel, TestimonialsCarousel_AdminOnly, HowItWorks6,
+   JoinUsEmailCapture (with modal selector Student vs School Admin),
+   DonateSection, Footer, ContentPage, DonatePage, SignupPage, LegalPage.
+3) Home page rendering order MUST be:
+   StickyNav → Hero → AudienceToggle → Active Segment sections (3.1–3.9) →
+   JoinUs → DonateSection → Footer.
+4) Audience toggle behavior:
+   - Default Students.
+   - Switching tabs refreshes the segment content sections below (no route change).
+5) Join flow behavior:
+   - Email input with basic validation (non-empty, includes '@').
+   - On Continue: open modal with two choices:
+     (a) I’m a Student → redirect to GOOGLE_FORM_STUDENT_URL_PLACEHOLDER
+     (b) I’m a School Admin → redirect to GOOGLE_FORM_SCHOOL_ADMIN_URL_PLACEHOLDER
+6) Donate CTAs must exist in: nav, hero, donate section, footer.
+7) For Donately: implement redirect button to DONATELY_URL_PLACEHOLDER (embed optional later).
+8) Use placeholders for images/videos/logos/icons (simple colored blocks + labels).
+9) Keep components content-driven: they accept props derived from siteSpec.json.
+
+Repo structure suggestion:
+- /content/siteSpec.json
+- /app/(pages...)
+- /components/(components listed above)
+- /lib/spec.ts (type definitions + loader)
+- /lib/utils.ts (helpers)

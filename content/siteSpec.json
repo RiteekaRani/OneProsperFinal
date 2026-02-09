@@ -1,0 +1,350 @@
+{
+    "meta": {
+      "projectName": "Read and Rise",
+      "domain": "oneprosper.org",
+      "relationshipNote": "Read and Rise is a sister organization to OneProsper International.",
+      "primaryGoals": [
+        "Fundraising and donation collection (Donately)",
+        "Buddy signups (USA/Canada high school girls)",
+        "School-admin signups (USA/Canada high school administrators)"
+      ]
+    },
+    "routing": {
+      "routes": [
+        { "path": "/", "title": "Home" },
+        { "path": "/about", "title": "About Us" },
+        { "path": "/donate", "title": "Donate" },
+        { "path": "/signup", "title": "Sign Up" },
+        { "path": "/privacy-policy", "title": "Privacy Policy" },
+        { "path": "/terms-of-service", "title": "Terms of Service" }
+      ]
+    },
+    "globals": {
+      "nav": {
+        "type": "StickyNav",
+        "sticky": true,
+        "items": [
+          { "label": "OneProsper", "href": "/", "kind": "logo" },
+          { "label": "About Us", "href": "/about", "kind": "link" },
+          { "label": "Donate", "href": "/donate", "kind": "ctaSecondary" },
+          { "label": "Sign Up", "href": "/signup", "kind": "ctaPrimary" }
+        ]
+      },
+      "donateCTA": {
+        "label": "Donate",
+        "href": "/donate",
+        "placements": ["nav", "hero", "donateSection", "footer"]
+      },
+      "assets": {
+        "placeholders": true,
+        "notes": "Use placeholder images/videos/logos/icons everywhere until replaced."
+      }
+    },
+    "content": {
+      "home": {
+        "toggle": {
+          "type": "AudienceToggle",
+          "label": "Choose your path",
+          "tabs": ["Students", "Schools"],
+          "defaultTab": "Students",
+          "behavior": "samePage_refreshSectionsBelow"
+        },
+        "hero": {
+          "type": "HeroTwoColumn",
+          "lhs": {
+            "h1": "Read and Rise: Girls Educating Girls",
+            "subhead": "A 10-week English Learning Buddy program connecting high school girls in the U.S./Canada with girls in India for weekly conversation and reading practice.",
+            "bridgeLine": "Read and Rise is a sister organization to OneProsper International.",
+            "primaryCTA": { "label": "Join Read and Rise", "action": "openJoinFlow" },
+            "secondaryCTA": { "label": "Donate", "action": "goToDonate" }
+          },
+          "rhs": {
+            "media": { "kind": "imageOrVideo", "assetId": "hero_media_placeholder" }
+          }
+        },
+        "segments": {
+          "Students": {
+            "sections": [
+              {
+                "id": "3.1",
+                "type": "Cards3WithImages",
+                "title": "Why this matters",
+                "intro": "Many students learn English in school — but confidence grows through regular conversation.",
+                "cards": [
+                  {
+                    "imageAssetId": "students_challenge_1",
+                    "headline": "Conversation practice is limited",
+                    "body": "Students often don’t get enough speaking time to build comfort and fluency."
+                  },
+                  {
+                    "imageAssetId": "students_challenge_2",
+                    "headline": "Confidence affects opportunity",
+                    "body": "Speaking confidently can unlock participation, leadership, and future pathways."
+                  },
+                  {
+                    "imageAssetId": "students_challenge_3",
+                    "headline": "Mentorship is powerful",
+                    "body": "A consistent peer relationship helps students stay motivated and supported."
+                  }
+                ]
+              },
+              {
+                "id": "3.2",
+                "type": "Cards3WithImages",
+                "title": "The Read and Rise Buddy Program",
+                "intro": "Simple structure. Real impact. One weekly commitment.",
+                "cards": [
+                  {
+                    "imageAssetId": "students_solution_1",
+                    "headline": "Get paired with a learner",
+                    "body": "You’ll be matched with a learner in India for a 10-week program."
+                  },
+                  {
+                    "imageAssetId": "students_solution_2",
+                    "headline": "Meet weekly for 30 minutes",
+                    "body": "Use Zoom/Meet to practice conversational English and read together."
+                  },
+                  {
+                    "imageAssetId": "students_solution_3",
+                    "headline": "Follow a clear lesson plan",
+                    "body": "We provide weekly materials so you always know what to do."
+                  }
+                ]
+              },
+              {
+                "id": "3.3",
+                "type": "Stats3Boxes",
+                "title": "Proven impact",
+                "stats": [
+                  { "value": "5,000+", "label": "Learners enrolled since 2020" },
+                  { "value": "7,500+", "label": "Volunteer hours delivered" },
+                  { "value": "98.6%", "label": "Would recommend to a friend" }
+                ]
+              },
+              {
+                "id": "3.4",
+                "type": "LogoRow6",
+                "title": "Trusted by schools",
+                "logos": [
+                  { "assetId": "logo_1", "alt": "School logo 1" },
+                  { "assetId": "logo_2", "alt": "School logo 2" },
+                  { "assetId": "logo_3", "alt": "School logo 3" },
+                  { "assetId": "logo_4", "alt": "School logo 4" },
+                  { "assetId": "logo_5", "alt": "School logo 5" },
+                  { "assetId": "logo_6", "alt": "School logo 6" }
+                ]
+              },
+              {
+                "id": "3.5",
+                "type": "TestimonialsCarousel",
+                "title": "What Buddies say",
+                "items": [
+                  { "mediaAssetId": "buddy_t_1", "quote": "I saw my learner’s confidence grow week by week.", "attribution": "Name, School" },
+                  { "mediaAssetId": "buddy_t_2", "quote": "The lesson plan made it easy to lead sessions.", "attribution": "Name, School" },
+                  { "mediaAssetId": "buddy_t_3", "quote": "This was the most meaningful service I’ve done.", "attribution": "Name, School" },
+                  { "mediaAssetId": "buddy_t_4", "quote": "I learned how to mentor and communicate clearly.", "attribution": "Name, School" },
+                  { "mediaAssetId": "buddy_t_5", "quote": "It felt like a real connection, not just volunteering.", "attribution": "Name, School" },
+                  { "mediaAssetId": "buddy_t_6", "quote": "I’d sign up again next term.", "attribution": "Name, School" }
+                ]
+              },
+              {
+                "id": "3.6",
+                "type": "TestimonialsCarousel",
+                "title": "What Learners say",
+                "items": [
+                  { "mediaAssetId": "learner_t_1", "quote": "Now I can speak without fear.", "attribution": "First name" },
+                  { "mediaAssetId": "learner_t_2", "quote": "My buddy helped me practice real conversation.", "attribution": "First name" },
+                  { "mediaAssetId": "learner_t_3", "quote": "Reading aloud improved my pronunciation.", "attribution": "First name" },
+                  { "mediaAssetId": "learner_t_4", "quote": "I feel more confident in class now.", "attribution": "First name" },
+                  { "mediaAssetId": "learner_t_5", "quote": "I look forward to our weekly calls.", "attribution": "First name" },
+                  { "mediaAssetId": "learner_t_6", "quote": "I learned new words and how to use them.", "attribution": "First name" }
+                ]
+              },
+              {
+                "id": "3.7",
+                "type": "TestimonialsCarousel_AdminOnly",
+                "title": "What schools say",
+                "items": [
+                  { "mediaAssetId": "admin_t_1", "quote": "High impact, low lift for our school.", "attribution": "Name, School" },
+                  { "mediaAssetId": "admin_t_2", "quote": "A structured program that builds leadership and service.", "attribution": "Name, School" },
+                  { "mediaAssetId": "admin_t_3", "quote": "Clear communication and consistent support.", "attribution": "Name, School" },
+                  { "mediaAssetId": "admin_t_4", "quote": "Students stayed engaged through the full program.", "attribution": "Name, School" },
+                  { "mediaAssetId": "admin_t_5", "quote": "Measurable hours and meaningful outcomes.", "attribution": "Name, School" },
+                  { "mediaAssetId": "admin_t_6", "quote": "We’d recommend it to other schools.", "attribution": "Name, School" }
+                ]
+              },
+              {
+                "id": "3.8",
+                "type": "HowItWorks6",
+                "title": "How it works for Students",
+                "steps": [
+                  { "iconAssetId": "step_1", "title": "Sign up", "body": "Share your email to get started." },
+                  { "iconAssetId": "step_2", "title": "Confirm your cohort", "body": "Reply YES to the confirmation message." },
+                  { "iconAssetId": "step_3", "title": "Attend orientation", "body": "Get lesson plan + tips." },
+                  { "iconAssetId": "step_4", "title": "Meet weekly", "body": "30 minutes on Zoom/Meet." },
+                  { "iconAssetId": "step_5", "title": "Log hours weekly", "body": "Submit volunteer hours in MobileServe." },
+                  { "iconAssetId": "step_6", "title": "Complete the program", "body": "Receive certificate + impact summary." }
+                ]
+              },
+              {
+                "id": "3.9",
+                "type": "Cards3WithImages",
+                "title": "What you’ll gain",
+                "cards": [
+                  { "imageAssetId": "students_benefit_1", "headline": "Verified service hours", "body": "Earn meaningful community service hours through a consistent weekly commitment." },
+                  { "imageAssetId": "students_benefit_2", "headline": "Leadership + mentorship skills", "body": "Build communication, responsibility, and confidence as a mentor." },
+                  { "imageAssetId": "students_benefit_3", "headline": "Global perspective", "body": "Connect across cultures and learn through real relationships." }
+                ]
+              }
+            ]
+          },
+          "Schools": {
+            "sections": [
+              {
+                "id": "3.1",
+                "type": "Cards3WithImages",
+                "title": "Why schools choose Read and Rise",
+                "intro": "Schools want programs that build leadership, service, and measurable impact without heavy admin overhead.",
+                "cards": [
+                  { "imageAssetId": "schools_challenge_1", "headline": "Students want meaningful service", "body": "Students want service that builds real skills and responsibility." },
+                  { "imageAssetId": "schools_challenge_2", "headline": "Schools need structure", "body": "Without a clear framework, volunteer programs lose momentum." },
+                  { "imageAssetId": "schools_challenge_3", "headline": "Outcomes must be measurable", "body": "Schools benefit from trackable participation and completion." }
+                ]
+              },
+              {
+                "id": "3.2",
+                "type": "Cards3WithImages",
+                "title": "A structured program your students can lead",
+                "intro": "Clear expectations, guided materials, measurable results.",
+                "cards": [
+                  { "imageAssetId": "schools_solution_1", "headline": "Share the signup link", "body": "Promote the program and share dates with eligible students." },
+                  { "imageAssetId": "schools_solution_2", "headline": "Support student participation", "body": "Encourage orientation attendance and weekly consistency." },
+                  { "imageAssetId": "schools_solution_3", "headline": "Celebrate service + leadership", "body": "Recognize students for mentorship, global learning, and service hours." }
+                ]
+              },
+              {
+                "id": "3.3",
+                "type": "Stats3Boxes",
+                "title": "Proven impact",
+                "stats": [
+                  { "value": "5,000+", "label": "Learners enrolled since 2020" },
+                  { "value": "7,500+", "label": "Volunteer hours delivered" },
+                  { "value": "98.6%", "label": "Would recommend to a friend" }
+                ]
+              },
+              {
+                "id": "3.4",
+                "type": "LogoRow6",
+                "title": "Participating schools",
+                "logos": [
+                  { "assetId": "logo_1", "alt": "School logo 1" },
+                  { "assetId": "logo_2", "alt": "School logo 2" },
+                  { "assetId": "logo_3", "alt": "School logo 3" },
+                  { "assetId": "logo_4", "alt": "School logo 4" },
+                  { "assetId": "logo_5", "alt": "School logo 5" },
+                  { "assetId": "logo_6", "alt": "School logo 6" }
+                ]
+              },
+              { "id": "3.5", "type": "TestimonialsCarousel", "title": "What Buddies say", "reuseFromSegment": "Students", "reuseSectionId": "3.5" },
+              { "id": "3.6", "type": "TestimonialsCarousel", "title": "What Learners say", "reuseFromSegment": "Students", "reuseSectionId": "3.6" },
+              { "id": "3.7", "type": "TestimonialsCarousel_AdminOnly", "title": "What schools say", "reuseFromSegment": "Students", "reuseSectionId": "3.7" },
+              {
+                "id": "3.8",
+                "type": "HowItWorks6",
+                "title": "How it works for Schools",
+                "steps": [
+                  { "iconAssetId": "step_1", "title": "Express interest", "body": "Share your email." },
+                  { "iconAssetId": "step_2", "title": "Confirm dates", "body": "Align on cohort schedule." },
+                  { "iconAssetId": "step_3", "title": "Share signup link", "body": "Students register directly." },
+                  { "iconAssetId": "step_4", "title": "Support orientation", "body": "Encourage student attendance." },
+                  { "iconAssetId": "step_5", "title": "Run the program", "body": "Weekly mentoring with guided materials." },
+                  { "iconAssetId": "step_6", "title": "Celebrate outcomes", "body": "Hours + participation summary." }
+                ]
+              },
+              {
+                "id": "3.9",
+                "type": "Cards3WithImages",
+                "title": "What your school gains",
+                "cards": [
+                  { "imageAssetId": "schools_benefit_1", "headline": "Service hours + leadership development", "body": "Students earn verified service hours while building mentorship skills." },
+                  { "imageAssetId": "schools_benefit_2", "headline": "A structured, low-lift program", "body": "Clear schedule, guided materials, and a predictable process." },
+                  { "imageAssetId": "schools_benefit_3", "headline": "Mission-aligned global impact", "body": "A meaningful way to connect students to global learning and equity." }
+                ]
+              }
+            ]
+          }
+        },
+        "joinUs": {
+          "type": "JoinUsEmailCapture",
+          "title": "Join Read and Rise",
+          "body": "Enter your email to get started.",
+          "emailFieldPlaceholder": "Email address",
+          "buttonLabel": "Continue",
+          "onSubmit": {
+            "type": "OpenSelectorModalThenRedirect",
+            "modalTitle": "Continue as…",
+            "options": [
+              { "label": "I’m a Student", "redirectUrl": "GOOGLE_FORM_STUDENT_URL_PLACEHOLDER" },
+              { "label": "I’m a School Admin", "redirectUrl": "GOOGLE_FORM_SCHOOL_ADMIN_URL_PLACEHOLDER" }
+            ]
+          }
+        },
+        "donateSection": {
+          "type": "DonateSection",
+          "title": "Sponsor a learner",
+          "body": "Your donation helps cover learning materials, program operations, and school coordination—so every learner can participate.",
+          "ctaLabel": "Donate Now",
+          "donately": { "mode": "embed_or_redirect", "url": "DONATELY_URL_PLACEHOLDER" }
+        },
+        "footer": {
+          "type": "Footer",
+          "relationshipLine": "Read and Rise is a sister organization to OneProsper International.",
+          "links": [
+            { "label": "About Us", "href": "/about" },
+            { "label": "Privacy Policy", "href": "/privacy-policy" },
+            { "label": "Terms of Service", "href": "/terms-of-service" },
+            { "label": "Donate", "href": "/donate" }
+          ],
+          "social": [
+            { "label": "Instagram", "href": "SOCIAL_INSTAGRAM_PLACEHOLDER" },
+            { "label": "LinkedIn", "href": "SOCIAL_LINKEDIN_PLACEHOLDER" },
+            { "label": "TikTok", "href": "SOCIAL_TIKTOK_PLACEHOLDER" }
+          ]
+        }
+      },
+      "about": {
+        "type": "ContentPage",
+        "title": "About Us",
+        "sections": [
+          { "id": "mission", "title": "Mission", "body": "PLACEHOLDER_ABOUT_MISSION" },
+          { "id": "leadership", "title": "Leadership Team", "body": "PLACEHOLDER_ABOUT_LEADERSHIP" },
+          { "id": "advisors", "title": "Directors & Advisors", "body": "PLACEHOLDER_ABOUT_ADVISORS" },
+          { "id": "history", "title": "History", "body": "PLACEHOLDER_ABOUT_HISTORY" },
+          { "id": "sister", "title": "Relationship to OneProsper", "body": "Read and Rise is a sister organization to OneProsper International." }
+        ]
+      },
+      "donate": {
+        "type": "DonatePage",
+        "title": "Donate",
+        "body": "Sponsor a learner.",
+        "donately": { "mode": "embed_or_redirect", "url": "DONATELY_URL_PLACEHOLDER" }
+      },
+      "signup": {
+        "type": "SignupPage",
+        "title": "Sign Up",
+        "body": "Enter your email to get started.",
+        "joinFlowRef": "content.home.joinUs"
+      },
+      "privacyPolicy": {
+        "type": "LegalPage",
+        "title": "Privacy Policy",
+        "body": "PLACEHOLDER_PRIVACY_POLICY"
+      },
+      "termsOfService": {
+        "type": "LegalPage",
+        "title": "Terms of Service",
+        "body": "PLACEHOLDER_TERMS_OF_SERVICE"
+      }
+    }
+  }
+  
