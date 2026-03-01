@@ -8,7 +8,7 @@
   2) Buddy signups (USA/Canada high school girls)
   3) School-admin signups (USA/Canada high school administrators)
 - Homepage is a single long-scroll page with a Students/Schools toggle that refreshes segment content below the toggle.
-- Primary CTA is fixed: “Join Read and Rise”.
+- Primary CTA is fixed: “Join read & rise”.
 
 ## 1) Site Map
 - / (Home: single long-scroll with Students/Schools toggle)
@@ -49,7 +49,7 @@ Footer
     "name": "Read and Rise",
     "domain": "oneprosper.org",
     "relationship_note": "Read and Rise is a sister organization to OneProsper International.",
-    "primary_cta": "Join Read and Rise",
+    "primary_cta": "Join read & rise",
     "donation_framing": "Sponsor a learner",
     "toggle_behavior": {
       "default_segment": "students",
@@ -84,7 +84,7 @@ Footer
         "h1": "Read and Rise: Girls Educating Girls",
         "subhead": "A 10-week English Learning Buddy program connecting high school girls in the U.S./Canada with girls in India for weekly conversation and reading practice.",
         "bridge_line": "Read and Rise is a sister organization to OneProsper International.",
-        "primary_cta": {"label": "Join Read and Rise", "action": "open_join_flow"},
+        "primary_cta": {"label": "Join read & rise", "action": "open_join_flow"},
         "secondary_cta": {"label": "Donate", "action": "go_to_donate"}
       },
       "rhs": {"asset": "placeholder_hero_image_or_video_call"}
@@ -118,7 +118,7 @@ Footer
           ]
         },
         "3_2_solution": {
-          "title": "The Read and Rise Buddy Program",
+          "title": "The read & rise Buddy Program",
           "intro": "Simple structure. Real impact. One weekly commitment.",
           "cards": [
             {
@@ -265,7 +265,7 @@ Footer
     },
     "join_us": {
       "section_id": "3_10_join_us",
-      "title": "Join Read and Rise",
+      "title": "Join read & rise",
       "body": "Enter your email to get started.",
       "email_capture": {"field_placeholder": "Email address", "button_label": "Continue"},
       "on_submit": {
@@ -282,7 +282,10 @@ Footer
       "title": "Sponsor a learner",
       "body": "Your donation helps cover learning materials, program operations, and school coordination—so every learner can participate.",
       "cta_label": "Donate Now",
-      "donately": {"mode": "embed_or_redirect", "url": "DONATELY_URL_PLACEHOLDER"}
+      "donately": {
+  "mode": "embed",
+  "url": "https://pages.donately.com/oneprosper/donate/"
+}
     },
     "footer": {
       "relationship_line": "Read and Rise is a sister organization to OneProsper International.",
@@ -435,7 +438,7 @@ Rules:
 │ H1...                        │
 │ subhead...                   │
 │ sister-org line              │
-│ [Join Read and Rise]         │
+│ [Join read & rise]         │
 │ [Donate]                     │
 └──────────────────────────────┘
 

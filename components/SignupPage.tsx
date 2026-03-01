@@ -9,8 +9,8 @@ type SignupPageProps = {
 export function SignupPage({ data, joinUs }: SignupPageProps) {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-12">
-      <h1 className="text-3xl font-semibold text-slate-900">{data.title}</h1>
-      <p className="mt-4 text-slate-600">{data.body}</p>
+      <h1 className="text-3xl font-semibold text-[#1f2937]">{data.title}</h1>
+      <p className="mt-4 text-[#6b7280] leading-relaxed">{data.body}</p>
       <div className="mt-8">
         <JoinUsEmailCapture data={joinUs} />
       </div>

@@ -127,6 +127,83 @@ export type LegalPage = {
   body: string;
 };
 
+export type WhatWeDoPage = {
+  type: "WhatWeDoPage";
+  title: string;
+  mission: {
+    title: string;
+    body: string;
+    imageAssetId: string;
+  };
+  services: Array<{
+    title: string;
+    description: string;
+    iconAssetId: string;
+    imageAssetId: string;
+  }>;
+  initiatives: Array<{
+    title: string;
+    description: string;
+    imageAssetId: string;
+  }>;
+};
+
+export type HowToHelpPage = {
+  type: "HowToHelpPage";
+  title: string;
+  intro: string;
+  waysToHelp: Array<{
+    title: string;
+    description: string;
+    ctaLabel: string;
+    ctaHref: string;
+    iconAssetId: string;
+  }>;
+};
+
+export type OurImpactPage = {
+  type: "OurImpactPage";
+  title: string;
+  stats: Array<{
+    value: string;
+    label: string;
+    description: string;
+  }>;
+  testimonials: Array<{
+    quote: string;
+    attribution: string;
+    imageAssetId: string;
+  }>;
+  stories: Array<{
+    title: string;
+    body: string;
+    imageAssetId: string;
+    videoIdOrUrl: string;
+  }>;
+  timeline: Array<{
+    year: string;
+    title: string;
+    description: string;
+  }>;
+};
+
+export type BlogPost = {
+  id: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  imageAssetId: string;
+  category: string;
+};
+
+export type BlogsPage = {
+  type: "BlogsPage";
+  title: string;
+  intro: string;
+  posts: BlogPost[];
+};
+
 export type ReuseSection = {
   id: string;
   type:
@@ -182,6 +259,10 @@ export type SiteSpec = {
       donateSection: DonateSection;
       footer: Footer;
     };
+    whatWeDo: WhatWeDoPage;
+    howToHelp: HowToHelpPage;
+    ourImpact: OurImpactPage;
+    blogs: BlogsPage;
     about: ContentPage;
     donate: DonatePage;
     signup: SignupPage;

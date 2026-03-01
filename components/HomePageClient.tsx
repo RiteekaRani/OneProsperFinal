@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactElement } from "react";
 import { useRouter } from "next/navigation";
 import type {
   AudienceToggle as AudienceToggleSpec,
@@ -78,12 +78,12 @@ export function HomePageClient({
   }, [activeTab, segments]);
 
   const getSectionBackground = (index: number) =>
-    index % 2 === 0 ? "bg-teal-50" : "bg-white";
+    index % 2 === 0 ? "bg-[#ffeea5]" : "bg-white";
 
   const [firstSection, ...restSections] = activeSections;
   let sectionIndex = 0;
-  const contentBlocks: JSX.Element[] = [];
-  const pushBlock = (key: string, content: JSX.Element) => {
+  const contentBlocks: ReactElement[] = [];
+  const pushBlock = (key: string, content: ReactElement) => {
     contentBlocks.push(
       <div key={key} className={getSectionBackground(sectionIndex)}>
         {content}
@@ -105,7 +105,7 @@ export function HomePageClient({
   );
 
   restSections.forEach((section) => {
-    pushBlock(section.id, renderSection(section) as JSX.Element);
+    pushBlock(section.id, renderSection(section) as ReactElement);
   });
 
   pushBlock("join-us", <JoinUsEmailCapture data={joinUs} sectionId="join-us" />);

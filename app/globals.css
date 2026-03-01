@@ -4,15 +4,20 @@
 
 :root {
   color-scheme: light;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f8fafc;
-  --color-border: #e2e8f0;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-  --color-primary: #0f172a;
-  --color-primary-contrast: #ffffff;
-  --color-accent: #2563eb;
-  --color-accent-soft: #dbeafe;
+  /* Light Yellow Color Palette */
+  --color-surface: #ffffff; /* Light yellow main background */
+  --color-surface-muted: #fff4c4; /* Slightly lighter yellow for muted sections */
+  --color-surface-card: #ffffff; /* White for cards to stand out */
+  --color-border: #ffffff; /* Slightly darker yellow for borders */
+  --color-text: #1f2937; /* Dark text for readability */
+  --color-text-muted: #6b7280; /* Muted text */
+  --color-primary: #1f2937; /* Dark for primary elements */
+  --color-primary-contrast: #ffffff; /* White text on primary */
+  --color-accent: #f59e0b; /* Orange-yellow accent */
+  --color-accent-soft: #fff9d6; /* Very light yellow for selection/hover */
+  --color-accent-hover: #d97706; /* Deeper orange on hover */
+  --color-highlight: #f59e0b; /* Prominent orange-yellow highlight for CTAs */
+  --color-highlight-hover: #fcfbfa; /* Deeper orange on hover */
 }
 
 body {
@@ -29,5 +34,6 @@ body {
 
   ::selection {
     background-color: var(--color-accent-soft);
+    color: var(--color-text);
   }
 }

@@ -9,7 +9,7 @@ export function Placeholder({ label, className }: PlaceholderProps) {
   return (
     <div
       className={cn(
-        "flex items-center justify-center rounded-md border border-dashed border-slate-300 bg-slate-100 text-xs font-medium text-slate-500",
+        "flex items-center justify-center rounded-md border border-dashed border-[#ffd966] bg-[#fff9d6] text-xs font-medium text-[#6b7280]",
         className
       )}
     >

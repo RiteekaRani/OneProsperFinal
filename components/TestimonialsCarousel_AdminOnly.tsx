@@ -19,7 +19,7 @@ export function TestimonialsCarousel_AdminOnly({
   return (
     <div className="relative">
       <div className="mx-auto w-full max-w-6xl px-6 pt-10">
-        <span className="inline-flex items-center rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+        <span className="inline-flex items-center rounded-full border border-[#ffd966] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#6b7280] bg-[#ffeea5]">
           Admin perspectives
         </span>
       </div>

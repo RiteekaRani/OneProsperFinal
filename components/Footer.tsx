@@ -10,6 +10,17 @@ type FooterProps = {
 export function Footer({ data, donateLabel, donateHref }: FooterProps) {
   const renderSocialIcon = (label: string) => {
     switch (label) {
+      case "Facebook":
+        return (
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            className="h-6 w-6"
+            fill="currentColor"
+          >
+            <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.3c0-2.5 1.5-3.9 3.7-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12H18l-.5 3h-2v7A10 10 0 0 0 22 12z" />
+          </svg>
+        );
       case "Instagram":
         return (
           <svg
@@ -25,7 +36,7 @@ export function Footer({ data, donateLabel, donateHref }: FooterProps) {
             />
           </svg>
         );
-      case "LinkedIn":
+      case "Twitter":
         return (
           <svg
             viewBox="0 0 24 24"
@@ -33,22 +44,7 @@ export function Footer({ data, donateLabel, donateHref }: FooterProps) {
             className="h-6 w-6"
             fill="currentColor"
           >
-            <path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
-            <path
-              d="M8 9.2a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4zM7 11h2v7H7v-7zM12 11h2v1.1c.4-.7 1.3-1.3 2.6-1.3 2 0 2.4 1.3 2.4 3.2V18h-2v-3.4c0-1-.2-2-1.3-2-1.2 0-1.7.8-1.7 2V18h-2v-7z"
-              fill="#fff"
-            />
-          </svg>
-        );
-      case "TikTok":
-        return (
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="h-6 w-6"
-            fill="currentColor"
-          >
-            <path d="M15 3h2c.3 2 1.9 3.8 4 4v2.2c-1.4 0-2.7-.4-4-1.2v5.2a5 5 0 1 1-5-5c.4 0 .8 0 1.2.1v2.4a2.6 2.6 0 1 0 1.8 2.5V3z" />
+            <path d="M23 3a10.9 10.9 0 0 1-3.14.86A4.48 4.48 0 0 0 22.4.36a9.09 9.09 0 0 1-2.88 1.1 4.52 4.52 0 0 0-7.86 4.12A12.83 12.83 0 0 1 1.64 2.16a4.52 4.52 0 0 0 1.4 6.04 4.48 4.48 0 0 1-2.05-.57v.06a4.53 4.53 0 0 0 3.63 4.44 4.5 4.5 0 0 1-2.04.08 4.53 4.53 0 0 0 4.23 3.14A9.06 9.06 0 0 1 1 19.54 12.79 12.79 0 0 0 7 21c8.3 0 12.85-6.88 12.85-12.85 0-.2 0-.39-.02-.58A9.22 9.22 0 0 0 23 3z" />
           </svg>
         );
       default:
@@ -57,32 +53,36 @@ export function Footer({ data, donateLabel, donateHref }: FooterProps) {
   };
 
   return (
-    <footer className="border-t border-slate-200 bg-white">
+    <footer className="border-t border-[#ffd966] bg-[#ffeea5]">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-10">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm text-slate-600">{data.relationshipLine}</p>
+          <p className="text-sm text-[#6b7280]">{data.relationshipLine}</p>
           <Link
             href={donateHref}
-            className="inline-flex w-fit rounded-full bg-slate-900 px-5 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+            className="inline-flex w-fit rounded-full bg-[#f59e0b] px-5 py-2 text-sm font-semibold text-[#1f2937] hover:bg-[#d97706] transition-colors shadow-sm"
           >
             {donateLabel}
           </Link>
         </div>
         <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
-          <div className="flex flex-wrap gap-4 text-sm text-slate-600">
+          <div className="flex flex-wrap gap-4 text-sm text-[#6b7280]">
             {data.links.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-slate-900">
+              <Link 
+                key={link.href} 
+                href={link.href} 
+                className="hover:text-[#f59e0b] transition-colors"
+              >
                 {link.label}
               </Link>
             ))}
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-slate-600 md:justify-end">
+          <div className="flex flex-wrap items-center gap-4 text-[#6b7280] md:justify-end">
             {data.social.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 aria-label={link.label}
-                className="transition hover:text-slate-900"
+                className="transition hover:text-[#f59e0b]"
               >
                 {renderSocialIcon(link.label)}
               </a>
