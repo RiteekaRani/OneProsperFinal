@@ -1,134 +1,114 @@
-import { loadSiteSpec } from "@/lib/spec-server";
-import Link from "next/link";
-import { SiteImage } from "@/components/SiteImage";
-
-export default async function WhatWeDoPage() {
-  const spec = await loadSiteSpec();
-  const data = spec.content.whatWeDo;
-
+export default async function WallOfLovePage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-[#ffeea5] py-16 px-6">
-        <div className="mx-auto max-w-6xl">
-          <h1 className="text-4xl md:text-5xl font-semibold text-[#1f2937] mb-6">
-            {data.title}
+    <main className="min-h-screen bg-[var(--color-surface)]">
+      {/* Section 1 - Full-width Hero Heading */}
+      <section className="bg-[var(--color-surface-muted)] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-center text-[var(--color-primary)]">
+            Empower a Girl in 30 Minutes per Week
           </h1>
         </div>
       </section>
 
-      {/* Mission Section */}
-      <section className="py-16 px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-semibold text-[#1f2937] mb-4">
-                {data.mission.title}
-              </h2>
-              <p className="text-lg text-[#6b7280] leading-relaxed">
-                {data.mission.body}
+      {/* Section 2 - Two Images */}
+      <section className="bg-[var(--color-surface)] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Image 1 Placeholder */}
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-border)] bg-[var(--color-accent-soft)]">
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-[var(--color-text-muted)] text-sm">Image 1 - Replace with actual image</span>
+              </div>
+            </div>
+            
+            {/* Image 2 Placeholder */}
+            <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-md border border-[var(--color-border)] bg-[var(--color-accent-soft)]">
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-[var(--color-text-muted)] text-sm">Image 2 - Replace with actual image</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3 - Story Heading */}
+      <section className="bg-[var(--color-surface-muted)] py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold text-center text-[var(--color-primary)]">
+            The Power of Confidence: Deepakshi's Story
+          </h2>
+        </div>
+      </section>
+
+      {/* Section 4 - Blog-style Article Body */}
+      <section className="bg-[var(--color-surface-muted)] pb-20 px-6">
+        <div className="max-w-3xl mx-auto">
+          {/* Author Credit */}
+          <div className="mb-8 text-center">
+            <p className="text-sm text-[var(--color-text-muted)] italic">
+              By Sophie Brown | Posted January 14, 2023
+            </p>
+          </div>
+
+          {/* Article Content */}
+          <article className="prose prose-lg max-w-none space-y-6">
+            <div className="text-base md:text-lg leading-relaxed text-[var(--color-text)] space-y-6">
+              {/* TODO: Paste the full Deepakshi story article text here */}
+              {/* Replace this placeholder with the complete article content */}
+              <p>
+                [Full Deepakshi story article text should be inserted here. 
+                Preserve all paragraph breaks and formatting as provided.]
               </p>
             </div>
-            <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-              <SiteImage
-                assetId={data.mission.imageAssetId}
-                alt={data.mission.title}
-                fill
-                objectFit="cover"
-                className="rounded-lg"
-              />
+          </article>
+        </div>
+      </section>
+
+      {/* Section 5 - Embedded YouTube Video */}
+      <section className="bg-[var(--color-surface)] py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h3 className="text-2xl font-semibold text-center mb-8 text-[var(--color-primary)]">
+            Sophie's Video Testimonial
+          </h3>
+          <div className="flex justify-center">
+            <div className="w-full aspect-video rounded-2xl overflow-hidden shadow-lg border border-[var(--color-border)]">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/t1afzE9f-4w?si=JhvxZRBLIgigg4bh"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="bg-white py-16 px-6">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-semibold text-[#1f2937] mb-12 text-center">
-            Our Services & Initiatives
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {data.services.map((service, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow"
-              >
-                <div className="relative w-full aspect-video mb-4 rounded-lg overflow-hidden">
-                  <SiteImage
-                    assetId={service.imageAssetId}
-                    alt={service.title}
-                    fill
-                    objectFit="cover"
-                    className="rounded-lg"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-[#1f2937] mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-[#6b7280] leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
+      {/* Section 6 - Full-width Image with Caption */}
+      <section className="bg-[var(--color-surface-muted)] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-semibold text-center mb-10 text-[var(--color-primary)]">
+            Sophia + Rabiya's Experience
+          </h3>
+          
+          {/* Full-width Image Placeholder */}
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md border border-[var(--color-border)] bg-[var(--color-accent-soft)]">
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-[var(--color-text-muted)] text-sm">Sophia + Rabiya Image - Replace with actual image</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Initiatives Section */}
-      <section className="py-16 px-6">
-        <div className="mx-auto max-w-6xl space-y-16">
-          {data.initiatives.map((initiative, index) => (
-            <div
-              key={index}
-              className={`grid md:grid-cols-2 gap-12 items-center ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
-              }`}
-            >
-              <div className={index % 2 === 1 ? "md:order-2" : ""}>
-                <h3 className="text-2xl font-semibold text-[#1f2937] mb-4">
-                  {initiative.title}
-                </h3>
-                <p className="text-lg text-[#6b7280] leading-relaxed">
-                  {initiative.description}
-                </p>
-              </div>
-              <div className={`relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                <SiteImage
-                  assetId={initiative.imageAssetId}
-                  alt={initiative.title}
-                  fill
-                  objectFit="cover"
-                  className="rounded-lg"
-                />
-              </div>
+      {/* Section 7 - Final Full-width Image */}
+      <section className="bg-[var(--color-surface)] py-20 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Full-width Image Placeholder */}
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-md border border-[var(--color-border)] bg-[var(--color-accent-soft)]">
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-[var(--color-text-muted)] text-sm">Final Image - Replace with actual image</span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="bg-[#ffeea5] py-16 px-6">
-        <div className="mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-semibold text-[#1f2937] mb-4">
-            Ready to Make a Difference?
-          </h2>
-          <p className="text-lg text-[#6b7280] mb-8">
-            Join our community of Buddies and help transform lives through education.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/signup"
-              className="inline-flex items-center justify-center rounded-full bg-[#f59e0b] px-6 py-3 text-sm font-semibold text-[#1f2937] hover:bg-[#d97706] transition-colors shadow-sm"
-            >
-              Become a Buddy
-            </Link>
-            <Link
-              href="/how-to-help"
-              className="inline-flex items-center justify-center rounded-full border border-[#e5e7eb] px-6 py-3 text-sm font-semibold text-[#1f2937] hover:border-[#f59e0b] hover:text-[#f59e0b] transition-colors"
-            >
-              Learn More Ways to Help
-            </Link>
           </div>
         </div>
       </section>

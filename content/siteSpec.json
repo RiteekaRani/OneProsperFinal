@@ -64,6 +64,11 @@
           "kind": "logo"
         },
         {
+          "label": "About Us",
+          "href": "/about",
+          "kind": "link"
+        },
+        {
           "label": "What We Do",
           "href": "/what-we-do",
           "kind": "link"
@@ -759,16 +764,16 @@
         },
         {
           "quote": "Our students love this program. It's structured, impactful, and builds real leadership skills. We've seen incredible growth in both our mentors and the relationships they've built.",
-          "attribution": "Ms. Johnson, School Administrator",
+          "attribution": "Mr. Ashok Thakur - Muni International School",
           "imageAssetId": "testimonial_school_1"
         }
       ],
       "stories": [
         {
-          "title": "Building Confidence, One Conversation at a Time",
-          "body": "When Anjali first joined our program, she was hesitant to speak during her weekly sessions. Through consistent support from her Buddy, Emma, she gradually opened up. By the end of the 10-week program, Anjali was confidently leading conversations and even helping other learners. Today, she's pursuing higher education with newfound confidence.",
+          "title": "Education Changes Everything",
+          "body": "In many parts of India, a girl’s education is often interrupted by financial hardship, household responsibilities, or social expectations. OneProsper exists to rewrite that story. Through consistent mentorship and English learning support, we empower girls to build confidence, strengthen communication skills, and imagine possibilities beyond their circumstances. Our volunteer Buddies provide more than lessons — they offer encouragement, role models, and belief. Because when a girl gains education and confidence, she doesn’t just change her own life — she uplifts her family and community.",
           "imageAssetId": "story_1_image",
-          "videoIdOrUrl": "YOUTUBE_VIDEO_ID_PLACEHOLDER_1"
+          "videoIdOrUrl": "PASTE_YOUR_YOUTUBE_EMBED_LINK_HERE"
         },
         {
           "title": "A Friendship That Crosses Continents",
